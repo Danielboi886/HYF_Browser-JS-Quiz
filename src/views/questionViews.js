@@ -8,13 +8,7 @@ import {
   TIMER_SPAN_ID,
   RESULT_CONTAINER_ID,
   USER_INTERFACE_ID,
-  USER_NAME_ID,
-  START_BUTTON_ID,
 } from '../constants.js';
-import {
-  nextQuestion,
-  selectedAnswer,
-} from '../listeners/questionListeners.js';
 import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
 
@@ -29,7 +23,6 @@ const createAnswersContainer = () => {
 export const createAnswerElement = (answerText) => {
   //- li should have class not id
   const answerElement = createDOMElement('li', {
-    // className: 'answer',
     content: answerText,
   });
   return answerElement;
