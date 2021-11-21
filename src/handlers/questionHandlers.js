@@ -18,7 +18,11 @@ import {
   getCardContent,
 } from '../utils/DOMUtils.js';
 import { quizData, timerData, animationData } from '../data.js';
-import { nextQuestion, showResult } from '../listeners/questionListeners.js';
+import {
+  nextQuestion,
+  showResult,
+  selectedAnswer,
+} from '../listeners/questionListeners.js';
 import {
   createResultContainerElement,
   getCurrentQuestion,
@@ -56,7 +60,14 @@ export const incrementQuestionIndex = () => {
 
 export const showCurrentQuestion = () => {
   const currentQuestion = getCurrentQuestion();
-
+  const currentIndex = quizData.currentQuestionIndex;
+  //* Adding eventListener for answers for current question
+  const answers = document.getElementsByClassName(`answer${currentIndex}`);
+  console.log(answers);
+  for (let answer of answers) {
+    answer.addEventListener('click', selectedAnswer);
+  }
+  //*
   const timeCount = document.querySelector('.current-timer');
   let time = currentQuestion.time;
 
@@ -137,6 +148,14 @@ export const clearUserInterface = () => {
 };
 
 export const handleSelectedAnswer = (evt) => {
+  const currentIndex = quizData.currentQuestionIndex;
+  //* Removing eventListeners from all current answers after one click
+  const answers = document.getElementsByClassName(`answer${currentIndex}`);
+  console.log(answers);
+  for (let answer of answers) {
+    answer.removeEventListener('click', selectedAnswer);
+  }
+  //*
   const currentQuestion = getCurrentQuestion();
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
 
@@ -164,7 +183,6 @@ export const handleSelectedAnswer = (evt) => {
     showCorrectAnswer();
   }
 };
-
 export const showQuizResult = () => {
   clearQuizContainer();
   const userInterfaceContainer = getDOMElement(USER_INTERFACE_ID);

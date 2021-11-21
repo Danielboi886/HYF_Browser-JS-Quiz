@@ -29,10 +29,9 @@ const createAnswersContainer = () => {
 export const createAnswerElement = (answerText) => {
   //- li should have class not id
   const answerElement = createDOMElement('li', {
-    className: 'answer-ID',
+    // className: 'answer',
     content: answerText,
   });
-  answerElement.addEventListener('click', selectedAnswer);
   return answerElement;
 };
 /**
@@ -129,6 +128,7 @@ export const createQuestionElement = () => {
 
     for (const answerKey in question.answers) {
       const answer = createAnswerElement(question.answers[answerKey]);
+      answer.className = `answer${i}`
       answerContainer.appendChild(answer);
     }
 
