@@ -121,7 +121,7 @@ export const createQuestionElement = () => {
 
     for (const answerKey in question.answers) {
       const answer = createAnswerElement(question.answers[answerKey]);
-      answer.className = `answer${i}`
+      answer.className = `answer${i}`;
       answerContainer.appendChild(answer);
     }
 
@@ -149,9 +149,9 @@ export const createQuestionElement = () => {
     previousCard = newCard;
   }
 
+  questionsContainer.appendChild(stackCards);
   return questionsContainer;
 };
-
 const createProgressContainer = () => {
   const progressContainer = createDOMElement('div', {
     className: 'progress-container',
@@ -159,10 +159,10 @@ const createProgressContainer = () => {
   const step = createDOMElement('div', {
     id: 'step',
   });
-  
+
   progressContainer.appendChild(step);
   return progressContainer;
-}
+};
 
 export const createQuizContainer = () => {
   const quizContainer = createDOMElement('div', {

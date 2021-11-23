@@ -91,12 +91,14 @@
 }
 @keyframes neonGreen {
   from {
-    box-shadow: inset 0 0 0px #ffffff7a, inset 0 0 2px #ffffff7a, 0 0 4px #ffffff7a, inset 0 0 12px #00ff0086,
-    inset 0 0 14px #00ff0086, 0 0 5px #00ff0086, 0 0 5px #00ff0086, 0 0 10px #00ff0086;
+    box-shadow: inset 0 0 0px #ffffff7a, inset 0 0 2px #ffffff7a,
+      0 0 4px #ffffff7a, inset 0 0 12px #00ff0086, inset 0 0 14px #00ff0086,
+      0 0 5px #00ff0086, 0 0 5px #00ff0086, 0 0 10px #00ff0086;
   }
   to {
-    box-shadow: inset 0 0 2px #ffffff7a, inset 0 0 5px #ffffff7a, 0 0 7px #ffffff7a, inset 0 0 15px #00ff0086,
-    inset 0 0 20px #00ff0086, 0 0 10px #00ff0086, 0 0 15px #00ff0086, 0 0 20px #00ff0086;
+    box-shadow: inset 0 0 2px #ffffff7a, inset 0 0 5px #ffffff7a,
+      0 0 7px #ffffff7a, inset 0 0 15px #00ff0086, inset 0 0 20px #00ff0086,
+      0 0 10px #00ff0086, 0 0 15px #00ff0086, 0 0 20px #00ff0086;
   }
 }
 @keyframes neonPink {
@@ -528,5 +530,4 @@ button:hover {
   .progress-container {
     margin-top: 380px;
   }
-
 }
