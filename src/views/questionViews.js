@@ -149,19 +149,20 @@ export const createQuestionElement = () => {
     previousCard = newCard;
   }
 
+  return questionsContainer;
+};
+
+const createProgressContainer = () => {
   const progressContainer = createDOMElement('div', {
     className: 'progress-container',
   });
   const step = createDOMElement('div', {
     id: 'step',
   });
-
+  
   progressContainer.appendChild(step);
-  questionsContainer.appendChild(stackCards);
-  questionsContainer.appendChild(progressContainer);
-
-  return questionsContainer;
-};
+  return progressContainer;
+}
 
 export const createQuizContainer = () => {
   const quizContainer = createDOMElement('div', {
@@ -169,8 +170,10 @@ export const createQuizContainer = () => {
     className: '',
   });
   const questionElement = createQuestionElement();
+  const progressContainer = createProgressContainer();
   const statusBar = createStatusBarElement();
   quizContainer.appendChild(questionElement);
+  quizContainer.appendChild(progressContainer);
   quizContainer.appendChild(statusBar);
   return quizContainer;
 };

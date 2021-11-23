@@ -246,13 +246,16 @@ button:hover {
 }
 #question-container {
   width: 90%;
-  height: 450px;
+  height: 430px;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-around; */
   align-items: center;
 }
 #stack-cards {
+  position: absolute;
+  right: 0px;
+  margin: 30px 30px 0 0;
 }
 .teams-name {
   font-family: 'Vampiro One';
@@ -400,16 +403,24 @@ button:hover {
 
 .progress-container {
   background-color: #ff10f0;
-  height: 8px;
+  /* height: 8px;
   width: 90%;
   margin-left: 10%;
-  border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px; */
+  height: 95%;
+  width: 8px;
+  margin: 5px;
+  border-radius: 5px;
 }
 #step {
   background-color: #770a70;
-  height: 8px;
+  /* height: 8px;
   width: 0%;
-  border-radius: 0 0 0 5px;
+  border-radius: 0 0 0 5px; */
+  align-self: bottom;
+  height: 100%;
+  width: 8px;
+  border-radius: 5px;
 }
 
 #result-container {

@@ -237,6 +237,6 @@ export let timerData = {
 
 export let animationData = {
   i: 0,
-  step: 0,
+  step: 100,
   layer: 10,
 };
