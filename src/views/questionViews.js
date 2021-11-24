@@ -6,7 +6,6 @@ import {
   NEXT_QUESTION_BUTTON_ID,
   SCORE_SPAN_ID,
   TIMER_SPAN_ID,
-  RESULT_CONTAINER_ID,
   USER_INTERFACE_ID,
 } from '../constants.js';
 import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
@@ -21,7 +20,6 @@ const createAnswersContainer = () => {
   return answerContainer;
 };
 export const createAnswerElement = (answerText) => {
-  //- li should have class not id
   const answerElement = createDOMElement('li', {
     content: answerText,
   });
@@ -152,6 +150,10 @@ export const createQuestionElement = () => {
   questionsContainer.appendChild(stackCards);
   return questionsContainer;
 };
+
+/**
+ * Create progress element
+ */
 const createProgressContainer = () => {
   const progressContainer = createDOMElement('div', {
     className: 'progress-container',
@@ -164,6 +166,9 @@ const createProgressContainer = () => {
   return progressContainer;
 };
 
+/**
+ * Create quiz element
+ */
 export const createQuizContainer = () => {
   const quizContainer = createDOMElement('div', {
     id: QUIZ_CONTAINER_ID,
@@ -176,30 +181,6 @@ export const createQuizContainer = () => {
   quizContainer.appendChild(progressContainer);
   quizContainer.appendChild(statusBar);
   return quizContainer;
-};
-// Create Result Container
-export const createResultContainerElement = () => {
-  const resultContainer = createDOMElement('div', { id: RESULT_CONTAINER_ID });
-
-  let congratsMessage = createDOMElement('h2', {
-    className: 'congrats-message',
-  });
-  const scoreMessage = createDOMElement('h3', { className: 'score-message' });
-  const totalScore = createDOMElement('h1', { className: 'total-score' });
-
-  totalScore.innerText = quizData.currentTotalScore;
-  if (totalScore >= '7') {
-    congratsMessage.innerText = `Well Done ${quizData.userName} !!`;
-  } else {
-    congratsMessage.innerText = 'Keep Learning & Try Again!';
-  }
-  scoreMessage.innerText = 'Your Score is';
-
-  resultContainer.appendChild(congratsMessage);
-  resultContainer.appendChild(scoreMessage);
-  resultContainer.appendChild(totalScore);
-
-  return resultContainer;
 };
 
 /**

@@ -15,22 +15,18 @@ import {
   getCurrentContent,
   getCardContent,
 } from '../utils/DOMUtils.js';
-import { quizData, timerData, animationData } from '../data.js';
+import { quizData, animationData } from '../data.js';
 import {
   nextQuestion,
   showResult,
   selectedAnswer,
 } from '../listeners/questionListeners.js';
-import {
-  createResultContainerElement,
-  getCurrentQuestion,
-} from '../views/questionViews.js';
-
+import { getCurrentQuestion } from '../views/questionViews.js';
+import { createResultPage } from '../views/resultPageView.js';
 export const incrementQuestionIndex = () => {
   quizData.currentQuestionIndex += 1;
 };
 export const showCurrentQuestion = () => {
-  const currentQuestion = getCurrentQuestion();
   const currentIndex = quizData.currentQuestionIndex;
   //* Adding eventListener for answers for current question
   const answers = document.getElementsByClassName(`answer${currentIndex}`);
@@ -40,7 +36,7 @@ export const showCurrentQuestion = () => {
   }
   //*
   const timeCount = document.querySelector('.current-timer');
-  let time = currentQuestion.time;
+  let time = quizData.time;
 
   const timerCountdown = () => {
     // Timer countdown gets the time variable from Line 21 which gets the data from data.js
@@ -52,10 +48,10 @@ export const showCurrentQuestion = () => {
       showCorrectAnswer();
       nextQuestionButton.addEventListener('click', nextQuestion);
       // if the answer assigned, timerCountdown stops. Otherwise, it keeps assigning every second
-      clearInterval(timerData.counter);
+      clearInterval(quizData.counter);
     }
   };
-  timerData.counter = setInterval(timerCountdown, 1000);
+  quizData.counter = setInterval(timerCountdown, 1000);
 
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.removeEventListener('click', nextQuestion);
@@ -80,14 +76,7 @@ export const deleteQuestionCard = () => {
   animationData.layer -= 1;
 
   card[9 - animationData.i].style.animation =
-    'neon 2s ease-in-out infinite alternate';
-  // const progressBar = document.querySelector('.progress-container');
-  // let progressBarMarginTop = progressBar.offsetTop;
-  // let progressBarMarginLeft = progressBar.offsetLeft;
-  // progressBarMarginTop -= 8;
-  // progressBarMarginLeft += 8;
-  // progressBar.style.marginTop = `${progressBarMarginTop}px`;
-  // progressBar.style.marginLeft = `${progressBarMarginLeft}px`;
+    'neon-blue 2s ease-in-out infinite alternate';
 
   if (animationData.i < cardContent.length) {
     document.getElementById('step').style.height = animationData.step + '%';
@@ -109,10 +98,10 @@ export const showCurrentScore = () => {
   scoreSpan.innerText = `Score: ${currentScore}`;
 };
 
-export const clearQuizContainer = () => {
-  const quizContainer = getDOMElement(QUIZ_CONTAINER_ID);
-  clearDOMElement(quizContainer);
-};
+// export const clearQuizContainer = () => {
+//   const quizContainer = getDOMElement(QUIZ_CONTAINER_ID);
+//   clearDOMElement(quizContainer);
+// };
 export const clearUserInterface = () => {
   const userInterface = getDOMElement(USER_INTERFACE_ID);
   clearDOMElement(userInterface);
@@ -135,7 +124,7 @@ export const handleSelectedAnswer = (evt) => {
     evt.target.textContent
   );
 
-  clearInterval(timerData.counter);
+  clearInterval(quizData.counter);
   nextQuestionButton.addEventListener('click', nextQuestion);
   const isCorrect = checkAnswer(
     currentQuestion.selected,
@@ -154,11 +143,11 @@ export const handleSelectedAnswer = (evt) => {
     showCorrectAnswer();
   }
 };
+
 export const showQuizResult = () => {
-  clearQuizContainer();
+  clearUserInterface();
   const userInterfaceContainer = getDOMElement(USER_INTERFACE_ID);
-  userInterfaceContainer.style.animation = 'none';
-  const resultPage = createResultContainerElement();
+  const resultPage = createResultPage();
   userInterfaceContainer.appendChild(resultPage);
 };
 
