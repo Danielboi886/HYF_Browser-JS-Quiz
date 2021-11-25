@@ -142,14 +142,14 @@
 }
 body {
   background-color: #0b0a35;
-  background: repeating-linear-gradient(
+  /* background: repeating-linear-gradient(
       45deg,
       #2b2b2b 0%,
       #2b2b2b 10%,
       #0b0a35 0%,
       #0b0a35 50%
     )
-    0 / 15px 15px;
+    0 / 15px 15px; */
   color: white;
   height: 100vh;
   text-align: center;
@@ -320,6 +320,7 @@ button:hover {
 }
 .card .active {
   background-color: rgba(0, 0, 0, 0.507);
+  border-radius: 5px;
 }
 .card-content {
   opacity: 0;
