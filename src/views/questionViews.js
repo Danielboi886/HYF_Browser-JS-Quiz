@@ -138,7 +138,7 @@ export const createResultContainerElement = () => {
   const totalScore = createDOMElement('h1', { className: 'total-score' });
 
   totalScore.innerText = quizData.currentTotalScore;
-  if (totalScore >= '7') {
+  if (quizData.currentTotalScore >= 7) {
     congratsMessage.innerText = 'Well Done!'
   } else {
     congratsMessage.innerText = 'Keep Learning & Try Again!'

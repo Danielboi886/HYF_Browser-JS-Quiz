@@ -231,7 +231,7 @@ export let timerData = {
   counter: ''
 };
 
-export let animationData = {
+export const animationData = {
   i: 0,
   step: 0,
   layer: 10
