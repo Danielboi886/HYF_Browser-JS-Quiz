@@ -44,7 +44,19 @@ export const createStartPage = () => {
 
   const userNameElement = createDOMElement('input', { id: USER_NAME_ID });
   userNameElement.setAttribute('type', 'text');
+  userNameElement.setAttribute('autofocus', 'autofocus');
   userNameElement.placeholder = 'Type Your Name here..';
+  userNameElement.addEventListener('keypress', (event) => {
+    if (event.keyCode === 13) {
+      const userName = document.getElementById(USER_NAME_ID).value;
+      if (userName) {
+        quizData.userName = userName.toUpperCase();
+      } else {
+        quizData.userName = 'GHOST';
+      }
+      startTheQuiz();
+    }
+  });
   startPageContainer.appendChild(userNameElement);
   const startTheQuizButton = createStartTheQuizButton();
   startPageContainer.appendChild(startTheQuizButton);
