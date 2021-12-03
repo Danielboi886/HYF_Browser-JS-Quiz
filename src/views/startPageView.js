@@ -14,6 +14,7 @@ const createStartTheQuizButton = () => {
   const startButton = createDOMElement('button', {
     id: START_BUTTON_ID,
     content: 'Start',
+    type: 'button',
   });
   startButton.addEventListener('click', () => {
     const userName = document.getElementById(USER_NAME_ID).value;

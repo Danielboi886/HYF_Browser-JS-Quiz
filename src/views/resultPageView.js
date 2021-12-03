@@ -1,17 +1,17 @@
 'use strict';
 
-import { FINNISH_BUTTON_ID } from '../constants.js';
+import { FINISH_BUTTON_ID } from '../constants.js';
 
 import { createDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
 
-const createFinnishButton = () => {
-  const finnishButton = createDOMElement('button', {
-    id: FINNISH_BUTTON_ID,
-    content: 'Finnish',
+const createFinishButton = () => {
+  const finishButton = createDOMElement('button', {
+    id: FINISH_BUTTON_ID,
+    content: 'Finish',
   });
-  finnishButton.addEventListener('click', () => location.reload());
-  return finnishButton;
+  finishButton.addEventListener('click', () => location.reload());
+  return finishButton;
 };
 
 export const createResultPage = () => {
@@ -39,11 +39,11 @@ export const createResultPage = () => {
     content: finalScore,
   });
 
-  const finnishButton = createFinnishButton();
+  const finishButton = createFinishButton();
   resultPageContainer.appendChild(congratsMessage);
   resultPageContainer.appendChild(scoreMessage);
   resultPageContainer.appendChild(totalScoreElement);
-  resultPageContainer.appendChild(finnishButton);
+  resultPageContainer.appendChild(finishButton);
 
   return resultPageContainer;
 };

@@ -98,10 +98,6 @@ export const showCurrentScore = () => {
   scoreSpan.innerText = `Score: ${currentScore}`;
 };
 
-// export const clearQuizContainer = () => {
-//   const quizContainer = getDOMElement(QUIZ_CONTAINER_ID);
-//   clearDOMElement(quizContainer);
-// };
 export const clearUserInterface = () => {
   const userInterface = getDOMElement(USER_INTERFACE_ID);
   clearDOMElement(userInterface);
