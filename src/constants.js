@@ -7,7 +7,7 @@
  
  It is an industry standard to make these variables fully capitalised to show this
 */
-
+export const USER_INTERFACE_ID = 'user-interface';
 export const QUESTION_CONTAINER_ID = 'question-container';
 export const QUIZ_CONTAINER_ID = 'quiz-container';
 export const NEXT_QUESTION_BUTTON_ID = 'next-question-button';
@@ -19,3 +19,5 @@ export const USER_NAME_ID = 'username-input';
 export const WELCOME_CONTAINER_ID = 'welcome-container';
 export const RESULT_CONTAINER_ID = 'result-container';
 
+export const START_BUTTON_ID = 'start-quiz-btn';
+export const FINISH_BUTTON_ID = 'finish-quiz-btn';
