@@ -261,7 +261,6 @@ button:hover {
   letter-spacing: 2px;
   animation: neon-text-pink 0.5s ease-in-out infinite alternate;
 }
-
 .quiz-status {
   height: 100%;
   display: flex;
@@ -448,11 +447,7 @@ button:hover {
   body {
     height: 95vh;
   }
-  .scrollable {
-    height: auto;
-    max-height: 90vh;
-    overflow: auto;
-  }
+  
   #user-interface {
     background-size: contain;
     width: 80%;
